@@ -25,6 +25,10 @@ Outliers_to_drop = detect_outliers(train,2,["Age","SibSp","Parch","Fare"])
 ### 결측치 처리
 - `Pclass`, `SibSp`, `Parch` 기준 median으로 예측하여 채움
 
+![스크린샷](../image/screenshot1.png)
+
+=> 상관계수표에서 Age와 상관관계가 상대적으로 높은 컬럼들을 중심으로 결측치를 보완
+
 ```PYTHON
 # Filling missing value of Age 
 
@@ -207,6 +211,6 @@ votingC = votingC.fit(X_train, Y_train)
     | **Hard Voting** | 개별 모델들이 예측한 결과(클래스)에서 가장 많이 투표된 클래스 선택     |
     | **Soft Voting** | 개별 모델들의 클래스별 예측 확률을 평균낸 후 가장 높은 확률의 클래스 선택 |
 
-    ![스크린샷](../image/screenshot1.png)
+    ![스크린샷](../image/screenshot2.png)
 
     => **Soft Voting** 방식은 각 모델이 반환하는 클래스에 대한 예측 확률을 활용하여, 더욱 정밀하고 일반화된 결과를 얻을 수 있음
