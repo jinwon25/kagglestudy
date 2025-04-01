@@ -100,6 +100,10 @@ g = g.set_title("Cross validation scores")
 - 여러 개의 분류 모델을 **StratifiedKFold 교차검증**을 통해 비교 평가함
 - 교차검증을 통해 각 모델의 평균 정확도를 계산하여 비교함
 
+> **StratifiedKFold란?**
+> - 단순히 데이터를 K등분하면, 클래스 비율이 fold마다 다를 수 있어 불균형 문제가 생김<br>
+> - 각 폴드(fold) 내의 클래스 비율이 전체 데이터의 비율과 유사하도록 유지되도록, 데이터를 **계층적(stratified)**으로 분할함
+
 #### 하이퍼파라미터 최적화
 
 ```PYTHON
