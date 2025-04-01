@@ -23,7 +23,7 @@ Outliers_to_drop = detect_outliers(train,2,["Age","SibSp","Parch","Fare"])
 
 ---
 ### 결측치 처리
-- Pclass, SibSp, Parch 기준 median으로 예측하여 채움
+- `Pclass`, `SibSp`, `Parch` 기준 median으로 예측하여 채움
 
 ```PYTHON
 # Filling missing value of Age 
