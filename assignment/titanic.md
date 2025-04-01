@@ -27,7 +27,7 @@ Outliers_to_drop = detect_outliers(train,2,["Age","SibSp","Parch","Fare"])
 
 ![스크린샷](../image/screenshot1.png)
 
-=> 상관계수표에서 Age와 상관관계가 상대적으로 높은 컬럼들을 중심으로 결측치를 보완
+=> 상관계수표에서 `Age`와 상관관계가 상대적으로 높은 컬럼들을 중심으로 결측치를 보완
 
 ```PYTHON
 # Filling missing value of Age 
@@ -46,8 +46,8 @@ for i in index_NaN_age :
 ```
 
 ---
-### 데이터 처리리
-- 가족 크기를 4가지 범주(Single, SmallF, MedF, LargeF)로 나눈 범주화 작업
+### 데이터 처리
+- 가족 크기를 4가지 범주(`Single`, `SmallF`, `MedF`, `LargeF`)로 나눈 범주화 작업
 
 ```PYTHON
 dataset['Single'] = dataset['Fsize'].map(lambda s: 1 if s == 1 else 0)
