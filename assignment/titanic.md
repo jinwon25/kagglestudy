@@ -46,6 +46,17 @@ for i in index_NaN_age :
 ```
 
 ---
+### 데이터 처리리
+- 가족 크기를 4가지 범주(Single, SmallF, MedF, LargeF)로 나눈 범주화 작업
+
+```PYTHON
+dataset['Single'] = dataset['Fsize'].map(lambda s: 1 if s == 1 else 0)
+dataset['SmallF'] = dataset['Fsize'].map(lambda s: 1 if s == 2 else 0)
+dataset['MedF'] = dataset['Fsize'].map(lambda s: 1 if 3 <= s <= 4 else 0)
+dataset['LargeF'] = dataset['Fsize'].map(lambda s: 1 if s >=5 else 0)
+```
+
+---
 ### 모델링
 
 #### 교차검증을 통한 분류 모델 성능 평가
@@ -194,6 +205,12 @@ for row in range(nrows):
 
 #### 앙상블 모델링
 
+![스크린샷](../image/screenshot2.png)
+
+- 각 모델들이 얼마나 비슷한 예측을 하는지 파악할 수 있음
+- 서로 다른 예측 경향을 가진 모델을 찾으면 앙상블 효과를 극대화할 수 있음
+=> AdaBoost는 다른 모델들과 상관관계가 낮아 다양성을 높이는 데 유리
+
 ```PYTHON
 votingC = VotingClassifier(estimators=[('rfc', RFC_best), ('extc', ExtC_best),
 ('svc', SVMC_best), ('adac',ada_best),('gbc',GBC_best)], voting='soft', n_jobs=4)
@@ -211,6 +228,6 @@ votingC = votingC.fit(X_train, Y_train)
     | **Hard Voting** | 개별 모델들이 예측한 결과(클래스)에서 가장 많이 투표된 클래스 선택     |
     | **Soft Voting** | 개별 모델들의 클래스별 예측 확률을 평균낸 후 가장 높은 확률의 클래스 선택 |
 
-    ![스크린샷](../image/screenshot2.png)
+    ![스크린샷](../image/screenshot3.png)
 
     => **Soft Voting** 방식은 각 모델이 반환하는 클래스에 대한 예측 확률을 활용하여, 더욱 정밀하고 일반화된 결과를 얻을 수 있음
